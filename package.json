@@ -1,6 +1,6 @@
 {
   "name": "lotus-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "a cli to generate eslint,prettier,jest,git config",
   "main": "index.js",
   "bin": {
@@ -13,15 +13,8 @@
   "author": "lotus",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^5.0.1",
     "commander": "^9.2.0",
-    "download-git-repo": "^3.0.2",
     "inquirer": "^8.2.4",
-    "log-symbols": "^5.1.0",
-    "ora": "^6.1.0",
-    "typescript": "^4.6.4"
-  },
-  "devDependencies": {
     "shelljs": "^0.8.5"
   }
 }
