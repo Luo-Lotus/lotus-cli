@@ -1,6 +1,6 @@
 {
   "name": "lotus-cli",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "a cli to generate eslint,prettier,jest,git config",
   "main": "index.js",
   "bin": {
