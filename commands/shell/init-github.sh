@@ -2,9 +2,8 @@
 npm i lint-staged husky -D
 npm set-script prepare "husky install"
 npm run prepare
-npx husky install
 npx husky add .husky/pre-commit "npx lint-staged"
-cat>lintstagedrc.json<<EOF
+cat>.lintstagedrc.json<<EOF
 {
     "*.{js,jsx,ts,tsx}": ["prettier --write .", "eslint  --fix"],
     "*.md": ["prettier --write"]
