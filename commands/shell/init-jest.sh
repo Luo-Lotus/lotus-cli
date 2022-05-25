@@ -1,6 +1,6 @@
 #!/bin/bash
 npm install -D jest @babel/core @babel/preset-env @babel/preset-typescript @types/jest @babel/cli @babel/runtime babel-jest jest-cli
-cat>.babelrc<<EOF
+cat>babel.config.json<<EOF
 {
     "presets": [
         [

@@ -10,7 +10,7 @@ cat>.lintstagedrc.json<<EOF
 }
 EOF
 mkdir .github
-mkdir .github/workflow
+mkdir .github/workflows
 cat>.github/workflow/test-before-merge-pr.yaml<<EOF
 name: test-before-merge-pr
 # 指定在master分支发生pull_request事件时才触发运行工作流程
