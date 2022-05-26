@@ -23,19 +23,32 @@ const option = [
     name: "husky",
     message: "是否添加husky,lint-staged与git-action",
   },
+  {
+    type: "confirm",
+    name: "husky",
+    message: "是否添加husky,lint-staged与git-action",
+  },
+  {
+    type: "confirm",
+    name: "sdk",
+    message: "是否生成SDK模板",
+  },
 ];
 
 prompt(option).then(answers => {
-  shell.exec(`chcp 65001`);
   initGit();
   const selected = Object.entries(answers)
     .filter(x => x[1])
     .map(x => x[0]);
-  funcs.styleFormat();
   selected.forEach(key => {
     funcs[key]();
   });
 });
+const changeWindowsCharset = () => {
+  if (process.platform === "win32") {
+    shell.exec(`chcp 65001`);
+  }
+};
 const initGit = () => {
   isGitInit = shell.find(process.cwd() + "\\.git").stdout !== "";
   if (!isGitInit) {
@@ -60,5 +73,17 @@ const funcs = {
   },
   husky: () => {
     shell.exec(`bash ${__dirname}\\shell\\init-github.sh`);
+  },
+  sdk: () => {
+    prompt([
+      {
+        name: "sdkName",
+        type: "input",
+        message: "SDK模板名称",
+      },
+    ]).then(({ sdkName }) => {
+      console.log(`bash ${__dirname}\\shell\\init-SDK-project.sh ${sdkName}`);
+      shell.exec(`bash ${__dirname}\\shell\\init-SDK-project.sh ${sdkName}`);
+    });
   },
 };

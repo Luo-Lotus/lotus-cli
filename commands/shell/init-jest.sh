@@ -15,13 +15,11 @@ cat>babel.config.json<<EOF
     ]
 }
 EOF
-cat>.jest.config.json<<EOF
+cat>jest.config.json<<EOF
 {
-    "transformIgnorePatterns": [
-        "/node_modules/(?!rn_request_ability)"
-    ],
+    "transformIgnorePatterns": ["/node_modules/(?!rn_request_ability)"],
     "transform": {
-        "^.+\\.[t|j]sx?$": "babel-jest"
+        "^.+.[t|j]sx?$": "babel-jest"
     },
     "testEnvironment": "node",
     "testTimeout": 20000,
