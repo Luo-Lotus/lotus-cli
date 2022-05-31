@@ -37,6 +37,7 @@ const option = [
 
 prompt(option).then(answers => {
   initGit();
+  changeWindowsCharset();
   const selected = Object.entries(answers)
     .filter(x => x[1])
     .map(x => x[0]);
@@ -44,6 +45,7 @@ prompt(option).then(answers => {
     funcs[key]();
   });
 });
+
 const changeWindowsCharset = () => {
   if (process.platform === "win32") {
     shell.exec(`chcp 65001`);
@@ -82,7 +84,6 @@ const funcs = {
         message: "SDK模板名称",
       },
     ]).then(({ sdkName }) => {
-      console.log(`bash ${__dirname}\\shell\\init-SDK-project.sh ${sdkName}`);
       shell.exec(`bash ${__dirname}\\shell\\init-SDK-project.sh ${sdkName}`);
     });
   },
